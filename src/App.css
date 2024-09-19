@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+h1{
+  color: #646681;
+    display: inline-block;
+    font-family: Poppins;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 2rem auto 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    font-family: "Montserrat", sans-serif;
+}
+.todoBox{
+  width: 750px;
+}
+
+@media only screen and (max-width: 770px) {
+ .todoBox{
+  width: 97%;
+ }  
+}

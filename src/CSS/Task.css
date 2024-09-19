@@ -1,0 +1,77 @@
+.task {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    justify-content: space-between;
+    animation: task;
+    animation-duration: 0.2s;
+    flex-wrap: wrap;
+}
+
+@keyframes task {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.task-line {
+    font-size: 0.8rem;
+    text-align: start;
+    font-weight: bold;
+}
+
+.date {
+    text-align: start;
+    font-size: 12px;
+}
+
+.checkbox {
+    transform: scale(2);
+
+}
+
+.taskCont {
+    padding: 1rem;
+}
+
+.detailsBox {
+    gap: 15px;
+}
+
+.Taskhere {
+    margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 770px) {
+    .checkbox {
+        transform: scale(1.5);
+    }
+
+    .date {
+        font-size: 11px;
+    }
+
+    .taskCont {
+        padding: 0.3rem;
+    }
+
+    .detailsBox {
+        gap: 6px;
+    }
+
+    .task {
+        padding: 0.5rem;
+    }
+
+    .Taskhere {
+        margin-bottom: 0.5rem;
+    }
+}
