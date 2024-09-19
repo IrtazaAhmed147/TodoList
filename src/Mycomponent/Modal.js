@@ -9,6 +9,7 @@ const Modal = () => {
     const [selectedVal, setSelectedVal] = useState("Normal")
     const [status, setStatus] = useState("InCompleted")
     const [date, setDate] = useState("2024-10-01")
+
     const Data = useContext(Datacontext)
 
 
@@ -21,14 +22,32 @@ const Modal = () => {
         if (Data.currentTask) {
             setInputValue(Data.currentTask.title);
             setSelectedVal(Data.currentTask.priority);
-            setDate(Data.currentTask.date);
+            setDate(Data.currentTask.duedate);
             setStatus(Data.isChecked[Data.currentTask.id] ? "Completed" : "InComplete");
-
+            
         }
     }, [Data.currentTask, Data.isChecked]);
 
 
 
+    // Time
+    const convertTo12HourFormat = (time24) => {
+        let [hours, minutes] = time24.split(":").map(Number);
+        const period = hours >= 12 ? "PM" : "AM";
+        hours = hours % 12 || 12;
+        return `${hours}:${minutes < 10 ? '0' : ''}${minutes} ${period}`;
+    };
+    const currentTime = new Date().toLocaleTimeString();  
+    const timeIn12HourFormat = convertTo12HourFormat(currentTime);
+
+
+    // current date 
+    const staticDate = new Date();
+    const formattedDate = staticDate.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
 
 
 
@@ -62,13 +81,14 @@ const Modal = () => {
 
 
         const trimmedValue = inputValue.trim();
-
+        
         if (!trimmedValue) {
             setWarning(true)
 
         }
 
         else {
+            
             if (Data.toggleSubmit) {
                 // Add new task
                 const newTaskId = Date.now();
@@ -76,7 +96,9 @@ const Modal = () => {
                     title: trimmedValue,
                     id: Date.now(),
                     priority: selectedVal,
-                    date: date
+                    duedate: date, 
+                    time: timeIn12HourFormat,
+                    generatedDate: formattedDate,
                 };
                 const updatedTasks = [...Data.task, newTask];
                 Data.setIsChecked({ ...Data.isChecked, [newTaskId]: status === "Completed" });
@@ -87,7 +109,7 @@ const Modal = () => {
                 // Edit task
                 const updatedTasks = Data.task.map((task) =>
                     task.id === Data.currentTask.id
-                        ? { ...task, title: trimmedValue, priority: selectedVal, date: date }
+                        ? { ...task, title: trimmedValue, priority: selectedVal, duedate: date }
                         : task
                 );
                 Data.setTask(updatedTasks);

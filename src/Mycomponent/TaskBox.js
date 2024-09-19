@@ -6,23 +6,7 @@ const TaskBox = (props) => {
   const Data = useContext(Datacontext)
 
 
-  // for time
-  const now = new Date()
-  const hour = now.getHours()
-  const min = now.getMinutes()
-  const time = `${hour}:${min}`
-
-
-  // for date
-  const year = now.getFullYear()
-  const month = now.getMonth() + 1
-  const days = now.getDay()
-  // console.log(days)
-  const CurrentDate = `${days}/${month}/${year}`
-
-
-
-
+  // console.log(props.generatedDate)
 
 
   const handleDelete = (id) => {
@@ -66,7 +50,7 @@ const TaskBox = (props) => {
               {props.title.charAt(0).toUpperCase() + props.title.slice(1)}
             </p>
             <p className='mb-0 date'>
-              {time} PM, {CurrentDate}
+             {props.time}, {props.genday}
             </p>
           </div>
 
@@ -79,7 +63,7 @@ const TaskBox = (props) => {
               Due Date
             </p>
             <p className='mb-0 date'>
-              {props.date}
+              {props.duedate}
             </p>
           </div>
 
