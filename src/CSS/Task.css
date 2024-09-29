@@ -50,17 +50,22 @@
     margin-bottom: 1rem;
 }
 
+.text-weight{
+    font-weight: 500;
+}
+
+
 @media only screen and (max-width: 770px) {
     .checkbox {
         transform: scale(1.5);
     }
 
     .date {
-        font-size: 11px;
+        font-size: 12px;
     }
 
     .taskCont {
-        padding: 0.3rem;
+        padding: 0.6rem;
     }
 
     .detailsBox {
@@ -74,4 +79,10 @@
     .Taskhere {
         margin-bottom: 0.5rem;
     }
+    .detailsBox{
+    width: 100%;
+     justify-content: space-between;   
+     margin-top: 10px;
+    }
+    
 }

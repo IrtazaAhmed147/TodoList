@@ -57,27 +57,32 @@ const TaskBox = (props) => {
         </div>
 
         <div className='detailsBox' style={{ display: "flex", alignItems: "center" }}>
+    <div style={{display: "flex", gap: "10px"}}>
 
           <div >
-            <p className='mb-0 task-line'>
+            <p className='mb-0 task-line text-weight'>
               Due Date
             </p>
-            <p className='mb-0 date'>
+            <p className='mb-0 date task-line' >
               {props.duedate}
             </p>
           </div>
 
           <div >
-            <p className='mb-0  task-line'>
+            <p className='mb-0  task-line text-weight'>
               Priority
             </p>
-            <p className='mb-0 date'>
+            <p className='mb-0 date task-line'>
               {props.priority}
             </p>
           </div>
+    </div>
+          <div style={{display: "flex", gap: "10px"}}>
+
           <button onClick={() => handleDelete(props.id)} className='btn btn-dark'><i className="fa-solid fa-trash"></i></button>
 
           <button className='btn btn-success' onClick={() => handleEdit(props.id)}>Edit</button>
+          </div>
 
         </div>
 
