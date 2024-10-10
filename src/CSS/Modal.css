@@ -1,3 +1,24 @@
+.modalMainBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+.color{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.6;
+    top: 0;
+    right: 0;
+}
 .modals{
     height: 340px;
     width: 500px;
@@ -5,7 +26,7 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    position: fixed;
+    /* position: fixed; */
     /* top: 50%; */
     left: 30%;
     border-radius: 12px;

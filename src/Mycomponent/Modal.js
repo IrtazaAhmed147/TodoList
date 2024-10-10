@@ -127,7 +127,9 @@ const Modal = () => {
 
     return (
         <>
-           
+                <div className='color'></div>
+            <div className='modalMainBox'>
+
             <div className='modals' >
                 <h1 >Add Todo</h1>
                 <div style={{ width: "100%" }}>
@@ -187,6 +189,7 @@ const Modal = () => {
                     <button className='btn btn-dark' onClick={handleModal} >Cancel</button>
                 </div>
 
+            </div>
             </div>
         </>
     )
