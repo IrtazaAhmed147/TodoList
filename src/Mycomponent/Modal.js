@@ -99,6 +99,7 @@ const Modal = () => {
                     duedate: date, 
                     time: timeIn12HourFormat,
                     generatedDate: formattedDate,
+                    status: 'completed',
                 };
                 const updatedTasks = [...Data.task, newTask];
                 Data.setIsChecked({ ...Data.isChecked, [newTaskId]: status === "Completed" });
@@ -107,6 +108,7 @@ const Modal = () => {
 
             } else {
                 // Edit task
+                console.log(Data)
                 const updatedTasks = Data.task.map((task) =>
                     task.id === Data.currentTask.id
                         ? { ...task, title: trimmedValue, priority: selectedVal, duedate: date }
@@ -114,7 +116,7 @@ const Modal = () => {
                 );
                 Data.setTask(updatedTasks);
                 Data.setIsChecked({ ...Data.isChecked, [Data.currentTask.id]: status === "Completed" });
-                console.log(Data.isChecked)
+                
 
             }
 

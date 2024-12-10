@@ -43,7 +43,7 @@ const Task = () => {
 
         {Data.task.map((element, index) => {
           return <div className='Taskhere' key={element.id}>
-            <TaskBox title={element.title} index={index} id={element.id} priority={element.priority} duedate={element.duedate} time={element.time} genday={element.generatedDate}  />
+            <TaskBox title={element.title} index={index} id={element.id} priority={element.priority} duedate={element.duedate} time={element.time} genday={element.generatedDate} />
 
           </div>
         })}
